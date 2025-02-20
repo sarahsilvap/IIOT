@@ -1,0 +1,8 @@
+@import 'reset.scss';
+@import 'variables.scss';
+
+#app{
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: var(--backgroud-light-color);
+}
