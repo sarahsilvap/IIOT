@@ -1,22 +1,14 @@
 <script setup lang="ts">
-    import { Places } from '@/models/devices'; 
-    import { reactive, ref } from 'vue';
-    
-    const sala: Places = {
-        nome: "Sala de estar",
-        devices: []
-    }
+import { Envirolment } from "@/models/devices";
+import { reactive, ref } from "vue";
 
-    const contador = ref(0);
-    const somar = () => contador.value += 1;
-
+const sala: Envirolment = {
+  name: "Sala de estar",
+  devices: [],
+};
 </script>
-
 <template>
-    <h1>Contagem: {{ contador }}</h1>
-    <button @click="somar">Contar</button>
+  <h1>Devices!!</h1>
 </template>
 
-<style setup lang="scss">
-
-</style>
+<style setup lang="scss"></style>
