@@ -4,7 +4,7 @@
 
 <template lang="">
     <h1>Page not found 😢</h1>
-    <img src="https://png.pngtree.com/png-clipart/20220109/original/pngtree-404-error-page-not-found-png-image_7021505.png">
+    <img src="https://cdn3.iconfinder.com/data/icons/web-element-activity/1000/Web-Element-05-512.png">
 </template>
 
 <style scoped ang="scss">
