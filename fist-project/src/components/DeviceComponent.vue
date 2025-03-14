@@ -8,33 +8,41 @@ const props = defineProps({
 // const props = defineProps<Device>({ -> Poderia ser realizado também desta forma
 //   device: { required: true },
 // });
+
+const changeDevice = (newState: boolean) => {
+  props.device.state = newState;
+};
 </script>
 
 <template>
   <section
-    :class="`flex flex-column text-center align-items-center justify-content-center device-${props.device.state}`"
-  >
+    :class="`flex flex-column text-center align-items-center justify-content-center device-${props.device.state}`">
     <h5>{{ props.device.name }}</h5>
     <span class="icons material-icons-round">{{ props.device.icon }}</span>
     <div class="flex flex-row">
-      <button class="device-buttons on-button">ON</button>
-      <button class="device-buttons off-button">OFF</button>
+      <button class="device-buttons on-button mr-1" @click="changeDevice(true)">
+        ON
+      </button>
+      <button class="device-buttons off-button" @click="changeDevice(false)">
+        OFF
+      </button>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
-section{
-        background-color: rgb(221, 221, 221);
-        border: 1px solid rgb(65, 65, 65);
-        width: 10rem;
-        height: 6rem;
-        margin: 0.5rem;
-        .icons{
-            width: 1.5rem;
-            margin: 0.5rem;          
-        }
-    }
+section {
+  background-color: rgb(221, 221, 221);
+  border: 1px solid rgb(65, 65, 65);
+  width: 10rem;
+  height: 6rem;
+  margin: 0.5rem;
+
+  .icons {
+    width: 1.5rem;
+    margin: 0.5rem;
+  }
+}
 
 .device-buttons {
   margin: 2px;
@@ -43,9 +51,10 @@ section{
   border-radius: 5px;
   cursor: pointer;
   font-size: 12px;
+
   &:hover {
     //opacity: 0.8;
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: 0.3s;
   }
 }
@@ -54,6 +63,7 @@ section{
   .on-button {
     background-color: green;
   }
+
   .off-button {
     background-color: white;
   }
@@ -63,6 +73,7 @@ section{
   .on-button {
     background-color: white;
   }
+
   .off-button {
     background-color: red;
   }

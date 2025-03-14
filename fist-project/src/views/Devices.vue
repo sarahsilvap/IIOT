@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { createRouter, createWebHistory, useRouter } from 'vue-router'
 import { Environment } from "@/models/devices";
 import { reactive, ref } from "vue";
 import { Device } from "@/models/devices";
-import DeviceComponent from "@/components/DeviceComponent.vue";
 import EnvironmentComponent from "@/components/EnvironmentComponent.vue";
+import Management from './Management.vue';
 
 const environments: Array<Environment> = reactive([]);
 
@@ -34,15 +35,26 @@ const sala: Environment = reactive(new Environment());
 sala.name = "Sala";
 sala.devices = [ar, tv, iluminacao, tomada];
 
+const cafeteira: Device = reactive(new Device());
+cafeteira.name = "Cafeteira";
+cafeteira.color = "#4d0d75";
+cafeteira.icon = "coffee_maker";
+cafeteira.state = true;
+
+const cozinha: Environment = reactive(new Environment());
+cozinha.name = "Cozinha";
+cozinha.devices = [cafeteira];
+
 // sala.devices.push(ar) -> "Empurra" o device ar para o Array. Poderia ser realizado deste modo, individualmente para cada device.
 // sala.devices = [...sala.devices, tomada] -> Caso eu queira acrescentar um elemento, após já ter colocado outros dispositivos em forma de array.
 
-environments.push(sala);
+environments.push(sala, cozinha);
+
 </script>
 
 <template>
   <main class="flex flex-column text-center justify-content-center align-items-center">
-    <h1>Devices page!!!!</h1>
+    <h1>Seus Dispositivos 🚥</h1>
     <section class="environments flex flex-column border-round-sm">
       <div class="device" v-for="(environment, env_id) in environments" :key="env_id">
         <EnvironmentComponent :environment="environment" />

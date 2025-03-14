@@ -1,9 +1,25 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { useRouter, RouterView } from 'vue-router';
+import { ref, computed } from 'vue';
+
+const router = useRouter();
+
+const buttonRouteLabel = computed(() => {
+  return router.currentRoute.value.path === "/" ?
+    "Gerenciamento" : "Dispositivos"
+})
+
+const changePage = () => {
+  if (router.currentRoute.value.path === "/") {
+    router.push("/management");
+  } else {
+    router.push("/");
+  }
+} 
 </script>
 
 <template>
-
+  <button @click="changePage">{{ buttonRouteLabel }}</button>
   <RouterView />
 </template>
 
