@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { createRouter, createWebHistory, useRouter } from 'vue-router'
 import { Environment } from "@/models/devices";
 import { reactive, ref } from "vue";
 import { Device } from "@/models/devices";
 import EnvironmentComponent from "@/components/EnvironmentComponent.vue";
-import Management from './Management.vue';
 
 const environments: Array<Environment> = reactive([]);
 
