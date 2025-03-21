@@ -10,9 +10,9 @@ export const useDeviceRepository = defineStore("device-repository", {
         environments: []
     }),
     actions: {
-        addEnviroment(newEnviroment: Environment) {
-            this.environments.push(newEnviroment);
-
+        addEnvironment(newEnvironment: Environment){
+            const deepCopy = JSON.parse(JSON.stringify(newEnvironment));
+            this.environments.push(newEnvironment);
         },
         removeEnviroment(name: String) {
             const index = this.environments.findIndex(env => env.name === name);
@@ -22,6 +22,5 @@ export const useDeviceRepository = defineStore("device-repository", {
         }
     },
     getters: {
-
     }
 })
