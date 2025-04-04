@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap md:justify-between justify-center">
+   <div class="">
     <h1>Personagens de Star Wars</h1>
     <ul>
       <li v-for="personagem in personagens" :key="personagem.name">
