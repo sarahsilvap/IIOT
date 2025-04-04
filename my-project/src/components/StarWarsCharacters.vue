@@ -1,11 +1,12 @@
 <template>
-   <div class="">
-    <h1>Personagens de Star Wars</h1>
-    <ul>
-      <li v-for="personagem in personagens" :key="personagem.name">
-        {{ personagem.name }} - {{ personagem.gender }} - {{ personagem.birth_year }}
-      </li>
-    </ul>
+  <div class="flex flex-column gap-2">
+    <h1 class="text-primary">Personagens de Star Wars</h1>
+    <div class="col-12" v-for="personagem in personagens" :key="personagem.name">
+      <div class="p-card p-3 shadow-2 border-round">
+        <h2 class="text-red-500">{{ personagem.name }}</h2>
+        <p class="text-blue-500">{{ personagem.gender }} - {{ personagem.birth_year }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
